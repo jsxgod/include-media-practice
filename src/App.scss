@@ -1,0 +1,61 @@
+@import "./breakpoints/breakpoints.scss";
+
+$lightgray: #D3D3D3;
+$silver: #C0C0C0;
+$gray: #A9A9A9;
+$darkgray: #808080;
+$dimgray: #696969;
+$blackgray: #282828;
+
+.layer {
+    font-family: "Avenir", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    height: 70vh;
+    background: #9D5F38;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+
+    @include media('<=phone') {
+        background-color: $lightgray;
+        &:before {
+            content: 'Phone Viewport';
+        }
+    }
+
+    @include media('>phone', '<=425px') {
+        background-color: $silver;
+        &:before {
+            content: 'Large Phone Viewport';
+        }
+    }
+
+    @include media('>425px', '<=tablet') {
+        background-color: $gray;
+        &:before {
+            content: 'Between large phone and tablet';
+        }
+    }
+
+    @include media('>tablet', '<desktop') {
+        background-color: $darkgray;
+        &:before {
+            content: 'Between tablet and desktop';
+        }
+    }
+    @include media('>=desktop') {
+        background-color: $dimgray;
+        &:before {
+            content: 'Desktop Viewport';
+        }
+    }
+    @include media('>=LGdesktop', 'retina2x') {
+        background-color: $blackgray;
+        &:before {
+            content: 'Large desktop viewport';
+        }
+    }
+}
